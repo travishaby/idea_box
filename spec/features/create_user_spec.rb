@@ -20,5 +20,4 @@ RSpec.describe UsersController, type: :feature do
     end
   end
 
-
 end
