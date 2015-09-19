@@ -8,8 +8,6 @@ This project is focused on practicing:
 * authorization
 * git workflow
 
-
-
 ### Project Option 1: IdeaBox
 
 The following are the specs we were assigned for this mini-project.

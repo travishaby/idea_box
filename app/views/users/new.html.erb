@@ -1,16 +1,26 @@
 <div class="row">
+
+  <div class="col-md-3">
+
+  </div>
   <div class="col-md-6">
-    <h3>Please Create An Account</h1>
+    <h3 align="center">Please Create An Account</h3>
 
-    <%= form_for(@user) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-    <%= f.submit "Create Account"%>
-    <% end %>
+    <table align="center">
+      <%= form_for(@user) do |f| %>
+      <tr>
+        <td><%= f.label :username %></td>
+        <td><%= f.text_field :username %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password %></td>
+        <td><%= f.text_field :password %></td>
+      </tr>
+      <tr>
+        <td><%= f.submit "Create Account"%></td>
+      </tr>
+      <% end %>
+    </table>
   </div>
-  <div class="col-md-6" id="sign_in">
 
-  </div>
 </div>

@@ -14,8 +14,13 @@ class SessionsController < ApplicationController
       redirect_to login_path
     else
       flash[:error] = "Account not registered. Please create an account"
-      redirect_to login_path
+      redirect_to new_user_path
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to login_path
   end
 
 end
