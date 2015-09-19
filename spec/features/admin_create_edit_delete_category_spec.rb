@@ -21,7 +21,6 @@ RSpec.describe Admin::CategoriesController, type: :feature do
         expect(page).to have_content "Fancy Beers"
       end
     end
-
   end
 
 end
