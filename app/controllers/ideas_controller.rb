@@ -19,6 +19,21 @@ class IdeasController < ApplicationController
     end
   end
 
+  def edit
+    @idea = Idea.find(params[:id])
+  end
+
+  def update
+    if valid_idea_params
+      Idea.find(params[:id]).update(user_added_params)
+      idea = Idea.find(params[:id])
+      redirect_to user_ideas_path(idea)
+    else
+      flash[:error] = "You must enter a name and a description!"
+      redirect_to edit_user_idea_path(current_user, params[:user_id])
+    end
+  end
+
   private
 
     def idea_params
@@ -29,6 +44,10 @@ class IdeasController < ApplicationController
       full_params = idea_params
       full_params[:user_id] = current_user.id
       full_params
+    end
+
+    def valid_idea_params
+      (params[:idea][:name] && params[:idea][:description]) != ""
     end
 
 end

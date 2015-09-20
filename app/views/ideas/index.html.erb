@@ -30,6 +30,7 @@
       <tr>
         <td><%= idea.name %></td>
         <td><%= idea.description %></td>
+        <td class="btn btn-default"><%= link_to "Edit", edit_user_idea_path(current_user, idea) %></td>
       </tr>
     <% end %>
     </table>
