@@ -26,10 +26,26 @@ RSpec.describe Admin::CategoriesController, type: :feature do
       fill_in "idea[description]", with: "They are fun and don't shed."
       select "Dogs I Like", from: "idea[category_id]"
       click_on "Create"
-      
+
       within("#ideas") do
         expect(page).to have_content("Golden Doodles")
       end
+    end
+
+    it "can edit an idea" do
+      user = User.find_by(username: "Lani")
+      category = Category.find_by(name: "Dogs I Like")
+      idea = Idea.create(name: "Golden Doodles",
+                         description: "They are fun and don't shed.",
+                         category_id: category.id)
+      within("#ideas") do
+        expect(page).to have_content("Golden Doodles")
+        click_link "Edit"
+      end
+
+      fill_in "idea[description]", with: "They are fun and don't shed."
+
+      
     end
   end
 
