@@ -1,0 +1,12 @@
+<h3>Edit your idea</h3>
+
+<div id="edit_idea_form">
+  <%= form_for(@idea, url: user_idea_path(current_user, @idea), method: :patch) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+  <%= f.submit "Submit" %>
+  <% end %>
+</div>

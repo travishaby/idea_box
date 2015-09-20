@@ -37,16 +37,42 @@ RSpec.describe Admin::CategoriesController, type: :feature do
       category = Category.find_by(name: "Dogs I Like")
       idea = Idea.create(name: "Golden Doodles",
                          description: "They are fun and don't shed.",
-                         category_id: category.id)
+                         category_id: category.id,
+                         user_id: user.id)
+      visit user_ideas_path(user, idea)
+
       within("#ideas") do
         expect(page).to have_content("Golden Doodles")
-        click_link "Edit"
+        click_on "Edit"
+      end
+      expect(current_path).to eq(edit_user_idea_path(user, idea))
+
+      fill_in "idea[description]", with: "They are SUPER fun and don't shed."
+      click_on "Submit"
+
+      within("#ideas") do
+        expect(page).to have_content("They are SUPER fun and don't shed.")
+      end
+    end
+
+    it "can delete an idea" do
+      user = User.find_by(username: "Lani")
+      category = Category.find_by(name: "Dogs I Like")
+      idea = Idea.create(name: "Golden Doodles",
+                         description: "They are fun and don't shed.",
+                         category_id: category.id,
+                         user_id: user.id)
+      visit user_ideas_path(user, idea)
+
+      within("#ideas") do
+        expect(page).to have_content("Golden Doodles")
+        click_on "Delete"
       end
 
-      fill_in "idea[description]", with: "They are fun and don't shed."
+      expect(page).not_to have_content("Golden Doodles")
 
-      
     end
+
   end
 
 end

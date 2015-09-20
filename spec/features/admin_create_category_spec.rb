@@ -33,7 +33,7 @@ RSpec.describe Admin::CategoriesController, type: :feature do
       click_link "Edit"
 
       fill_in "category[name]", with: "Fancy Cheeses"
-      click_button "Create"
+      click_button "Submit"
 
       within "#category" do
         expect(page).not_to have_content "Fancy Beers"
