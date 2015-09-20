@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "users#index"
 
   resources :users, only: [:new, :index, :create, :show] do
-    resources :ideas, only: [:index, :new, :create, :edit, :update]
+    resources :ideas
   end
 
   namespace :admin do
