@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div align="center" class="col-md-6" id="create_idea">
+    <div class="btn btn-default"><%= link_to "Create an idea", new_user_idea_path(current_user) %></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div align="center" class="col-md-6">
+
+  </div>
+</div>
+
+<div class="row">
+  <h3 align="center">Your Ideas</h3>
+</div>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6" id="ideas">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

@@ -14,7 +14,7 @@ class Admin::CategoriesController < Admin::BaseController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:error] = "Successfully created!"
+      flash[:notice] = "Successfully created!"
       redirect_to admin_categories_path
     else
       flash[:error] = "You need to enter a name."
@@ -40,7 +40,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     category = Category.find(params[:id]).destroy
-    flash[:error] = "Deleted the category '#{category.name}'!"
+    flash[:notice] = "Deleted the category '#{category.name}'!"
     redirect_to admin_categories_path
   end
 
