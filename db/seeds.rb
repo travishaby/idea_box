@@ -10,3 +10,7 @@ User.create(username: "Lani", password: "winnie", role: "admin")
 
 User.create(username: "Nick", password: "kingdodo", role: "user")
 User.create(username: "Val", password: "queendodo", role: "user")
+
+Category.create(name: "Fancy Cheeses")
+Category.create(name: "Fancy Meats")
+Category.create(name: "Fancy Bowties")

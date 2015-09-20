@@ -1,0 +1,7 @@
+<h3>Please edit the category</h3>
+
+  <%= form_for @category, url: admin_category_path, method: :patch do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @category.name %>
+    <%= f.submit "Create" %>
+  <% end %>

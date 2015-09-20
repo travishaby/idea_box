@@ -36,17 +36,20 @@
         </div>
       </div>
     </nav>
-  <div class="row">
+  <div class="row panel">
     <div class="col-md-4">
     <% flash.each do |name, message| %>
       <%= content_tag :div, message %>
     <% end %>
     </div>
-    <div class="col-md-4">
       <% if current_admin? %>
+    <div class="col-md-4">
         <%= link_to "View Categories", admin_categories_path %>
-      <% end %>
     </div>
+    <div class="col-md-4">
+      <%= link_to "Create A Category", new_admin_category_path %>
+    </div>
+    <% end %>
   </div>
 <%= yield %>
 

@@ -1,17 +1,28 @@
-<h3>All Categories</h3>
+<div class="row">
+  <div>
+    <h3 align="center">All Categories</h3>
+  </div>
+</div>
 
-<div class="row" id="categories">
+<div class="row">
 
   <div class="col-md-3">
 
   </div>
 
-  <div class="col-md-6">
+  <table class="col-md-6 table-hover table-bordered" id="categories">
+    <tr>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+    </tr>
     <% @categories.each do |category| %>
-    <p>
-      <%= category.name %>
-    </p>
+    <tr id="category_<%= category.id.to_s %>">
+      <td><%= category.name %> </td>
+      <td align="center"><%= link_to "Edit", edit_admin_category_path(category) %></td>
+      <td align="center"><%= link_to "Delete", admin_category_path(category), method: :delete %></td>
+    </tr>
     <% end %>
-  </div>
+  </table>
 
 </div>
