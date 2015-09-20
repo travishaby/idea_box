@@ -1,0 +1,12 @@
+<h3>Create a new idea</h3>
+
+<div class="">
+  <%= form_for(@idea, url: user_ideas_path(current_user)) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+  <%= f.submit "Create" %>
+  <% end %>
+</div>
