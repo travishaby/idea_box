@@ -11,6 +11,3 @@
 /log/*
 !/log/.keep
 /tmp
-
-# Ignore CSS File
-/app/assets/stylesheets/application.css
