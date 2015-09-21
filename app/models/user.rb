@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
 
   has_many :ideas
 
+  validates :username, presence: true, uniqueness: true
+  validates :password, presence: true
+
   def admin?
-    self.role == "admin"
+    role == "admin"
   end
 end

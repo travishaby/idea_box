@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# General program tools
+coverage
+capybara*.html
