@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Idea, type: :model do
-
   it "has a name and a description" do
     idea = Idea.new(name: "travis", description: "is my name")
 
@@ -19,5 +18,4 @@ RSpec.describe Idea, type: :model do
 
     expect(idea).to_not be_valid
   end
-
 end
