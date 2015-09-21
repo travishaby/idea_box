@@ -75,4 +75,30 @@ RSpec.describe Admin::CategoriesController, type: :feature do
 
   end
 
+  describe "a logged in user" do
+    it "cant see the ideas of another logged in user" do
+      user = User.find_by(username: "Lani")
+      category = Category.find_by(name: "Dogs I Like")
+      idea = Idea.create(name: "Golden Doodles",
+                         description: "They are fun and don't shed.",
+                         category_id: category.id,
+                         user_id: user.id)
+      visit user_ideas_path(user, idea)
+
+      within("#ideas") do
+        expect(page).to have_content("Golden Doodles")
+      end
+
+      click_on "Logout"
+      User.create(username: "Travis", password: "password")
+      visit login_path
+      fill_in "session[username]", with: "Travis"
+      fill_in "session[password]", with: "password"
+      click_button "Login"
+      within("#ideas") do
+        expect(page).not_to have_content("Golden Doodles")
+      end
+    end
+  end
+
 end
