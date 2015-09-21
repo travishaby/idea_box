@@ -34,6 +34,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'simplecov', '~> 0.10.0'
 end
 
 group :development do
