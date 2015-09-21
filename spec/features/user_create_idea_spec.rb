@@ -100,5 +100,4 @@ RSpec.describe Admin::CategoriesController, type: :feature do
       end
     end
   end
-
 end
